@@ -902,6 +902,162 @@ ul { list-style: none; }
 }
 
 /* ══════════════════════════════════════
+   PARTICLE CANVAS
+   ══════════════════════════════════════ */
+#particleCanvas {
+  position: fixed; inset: 0;
+  z-index: 0; pointer-events: none;
+  opacity: .35;
+}
+
+/* ══════════════════════════════════════
+   CUSTOM CURSOR
+   ══════════════════════════════════════ */
+.cursor-dot {
+  position: fixed; width: 6px; height: 6px;
+  background: var(--accent); border-radius: 50%;
+  pointer-events: none; z-index: 100001;
+  transform: translate(-50%, -50%);
+  transition: transform .08s ease;
+}
+.cursor-ring {
+  position: fixed; width: 36px; height: 36px;
+  border: 2px solid rgba(226,117,0,.4); border-radius: 50%;
+  pointer-events: none; z-index: 100000;
+  transform: translate(-50%, -50%);
+  transition: width .25s, height .25s, border-color .25s, transform .15s ease;
+}
+.cursor-ring.hovering {
+  width: 54px; height: 54px;
+  border-color: var(--accent);
+}
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ══════════════════════════════════════
+   FLOATING ORBS
+   ══════════════════════════════════════ */
+.hero-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: .18;
+  pointer-events: none; z-index: 0;
+}
+.hero-orb-1 {
+  width: 400px; height: 400px; top: -10%; left: -8%;
+  background: var(--accent);
+  animation: orbFloat1 8s ease-in-out infinite;
+}
+.hero-orb-2 {
+  width: 300px; height: 300px; bottom: 5%; right: -5%;
+  background: #6c5ce7;
+  animation: orbFloat2 10s ease-in-out infinite;
+}
+.hero-orb-3 {
+  width: 250px; height: 250px; top: 40%; left: 50%;
+  background: #00cec9;
+  animation: orbFloat3 12s ease-in-out infinite;
+}
+@keyframes orbFloat1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+@keyframes orbFloat2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,-40px)} }
+@keyframes orbFloat3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-20px)} }
+
+/* ══════════════════════════════════════
+   PROJECT LINK BUTTONS
+   ══════════════════════════════════════ */
+.project-links {
+  display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap;
+}
+.project-link-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 8px 18px; border-radius: 50px;
+  font-size: .78rem; font-weight: 600;
+  transition: all .3s ease; cursor: pointer;
+  text-decoration: none; border: 1.5px solid var(--border);
+}
+.project-link-live {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.project-link-live:hover {
+  background: var(--accent-hover); transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(226,117,0,.35);
+}
+.project-link-code {
+  background: transparent; color: var(--text);
+}
+.project-link-code:hover {
+  border-color: var(--accent); color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════
+   ENHANCED ANIMATIONS
+   ══════════════════════════════════════ */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(226,117,0,.3); }
+  50% { box-shadow: 0 0 20px 4px rgba(226,117,0,.15); }
+}
+@keyframes float-badge {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.project-badge { animation: float-badge 3s ease-in-out infinite; }
+.btn-primary { animation: pulse-glow 3s ease-in-out infinite; }
+.hero-portrait { animation: pulse-glow 4s ease-in-out infinite; }
+
+/* Stagger children animations */
+.stack-card:nth-child(1) { transition-delay: 0s; }
+.stack-card:nth-child(2) { transition-delay: .1s; }
+.stack-card:nth-child(3) { transition-delay: .2s; }
+.stack-card:nth-child(4) { transition-delay: .3s; }
+
+.project-card:nth-child(1) { transition-delay: 0s; }
+.project-card:nth-child(2) { transition-delay: .08s; }
+.project-card:nth-child(3) { transition-delay: .16s; }
+.project-card:nth-child(4) { transition-delay: .24s; }
+.project-card:nth-child(5) { transition-delay: .32s; }
+
+/* Card spotlight gradient on hover */
+.project-card::before,
+.stack-card-inner::before,
+.achieve-card::before,
+.edu-card::before,
+.contact-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle 200px at var(--mx, 50%) var(--my, 50%),
+    rgba(226,117,0,.06), transparent 70%);
+  opacity: 0; transition: opacity .4s;
+  pointer-events: none; z-index: 0;
+}
+.project-card, .stack-card-inner, .achieve-card, .edu-card, .contact-card {
+  position: relative;
+}
+.project-card:hover::before,
+.stack-card-inner:hover::before,
+.achieve-card:hover::before,
+.edu-card:hover::before,
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+/* Section title gradient shimmer */
+.section-title {
+  background: linear-gradient(90deg, var(--dark) 40%, var(--accent) 50%, var(--dark) 60%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+/* ══════════════════════════════════════
    ANIMATIONS — fade-in on scroll
    ══════════════════════════════════════ */
 .anim-up {
