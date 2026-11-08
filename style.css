@@ -1174,6 +1174,11 @@ ul { list-style: none; }
   letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
+.visit-number img {
+  display: block;
+  width: auto;
+  height: 1.1em;
+}
 
 /* ══════════════════════════════════════
    BADGES & GRADIENTS FOR NEW ITEMS

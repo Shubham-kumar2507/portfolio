@@ -328,49 +328,22 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── VISIT COUNTER ── */
   const visitEl = document.getElementById('visitNumber');
   if (visitEl) {
-    const STORAGE_KEY = 'shubham_portfolio_visits';
-    const BASE_COUNT = 1840; // baseline realistic visitor count
-    let visits = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
-    
-    // Increment visit once per session
-    const sessionKey = 'shubham_visited_session';
-    if (!sessionStorage.getItem(sessionKey)) {
-      visits = (visits === 0 ? BASE_COUNT : visits) + 1;
-      localStorage.setItem(STORAGE_KEY, visits.toString());
-      sessionStorage.setItem(sessionKey, '1');
-    } else if (visits === 0) {
-      visits = BASE_COUNT;
-      localStorage.setItem(STORAGE_KEY, visits.toString());
-    }
+    const visitorBadge = document.createElement('img');
+    visitorBadge.alt = 'Visitor count loading';
+    visitorBadge.referrerPolicy = 'no-referrer';
+    visitorBadge.addEventListener('load', () => visitEl.replaceChildren(visitorBadge), { once: true });
+    visitorBadge.addEventListener('error', () => {
+      visitEl.textContent = 'Unavailable';
+      visitEl.setAttribute('aria-label', 'Visitor count unavailable');
+    }, { once: true });
 
-    // Rolling counter animation
-    const targetCount = visits;
-    const startCount = Math.max(0, targetCount - 45);
-    const duration = 1600;
-    const startTime = performance.now();
-
-    function formatVisitNum(num) {
-      return String(num).padStart(6, '0');
-    }
-
-    function animateVisitCounter(now) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // easeOutCubic
-      const ease = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(startCount + (targetCount - startCount) * ease);
-      visitEl.textContent = formatVisitNum(current);
-
-      if (progress < 1) {
-        requestAnimationFrame(animateVisitCounter);
-      } else {
-        visitEl.textContent = formatVisitNum(targetCount);
-      }
-    }
-
-    setTimeout(() => {
-      requestAnimationFrame(animateVisitCounter);
-    }, 600);
+    const counterUrl = new URL('https://api.visitorbadge.io/api/visitors');
+    counterUrl.searchParams.set('path', 'shubham-kumar2507.github.io/portfolio/');
+    counterUrl.searchParams.set('label', '');
+    counterUrl.searchParams.set('labelColor', '#000000');
+    counterUrl.searchParams.set('countColor', '#ffffff');
+    counterUrl.searchParams.set('cache', String(Date.now()));
+    visitorBadge.src = counterUrl.toString();
   }
 
   /* ── NUMBER STATS COUNTER ANIMATION ── */
