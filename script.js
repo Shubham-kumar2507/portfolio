@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     counterUrl.searchParams.set('path', 'shubham-kumar2507.github.io/portfolio/');
     counterUrl.searchParams.set('label', '');
     counterUrl.searchParams.set('labelColor', '#000000');
-    counterUrl.searchParams.set('countColor', '#ffffff');
+    counterUrl.searchParams.set('countColor', '#e27500');
     counterUrl.searchParams.set('cache', String(Date.now()));
     visitorBadge.src = counterUrl.toString();
   }

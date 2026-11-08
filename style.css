@@ -1085,14 +1085,14 @@ ul { list-style: none; }
   top: 20px;
   right: 24px;
   z-index: 99999;
-  background: rgba(20, 22, 23, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 40px;
-  padding: 8px 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(226, 117, 0, 0.12);
-  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: linear-gradient(135deg, rgba(20, 22, 23, 0.96), rgba(36, 38, 39, 0.92));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 117, 0, 0.28);
+  border-radius: 16px;
+  padding: 8px 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 18px rgba(226, 117, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   cursor: default;
   user-select: none;
   animation: counterWidgetEntrance 1s ease-out 0.8s backwards;
@@ -1110,54 +1110,59 @@ ul { list-style: none; }
 }
 
 .visit-counter:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35), 0 0 25px rgba(226, 117, 0, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 0 22px rgba(226, 117, 0, 0.18);
   border-color: rgba(226, 117, 0, 0.5);
 }
 
 .visit-counter-inner {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
 }
 
 .visit-counter-icon {
-  font-size: 1.15rem;
-  line-height: 1;
-  position: relative;
-  animation: pulseEye 3s ease-in-out infinite;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  color: #ffad4d;
+  background: rgba(226, 117, 0, 0.14);
+  border: 1px solid rgba(226, 117, 0, 0.18);
+  border-radius: 10px;
 }
 
-@keyframes pulseEye {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); filter: drop-shadow(0 0 6px rgba(226, 117, 0, 0.8)); }
+.visit-counter-icon svg {
+  width: 18px;
+  height: 18px;
+  position: relative;
 }
 
 .visit-counter-text {
   display: flex;
-  flex-direction: column;
-  line-height: 1.1;
+  align-items: center;
+  gap: 9px;
 }
 
 .visit-label {
-  font-size: 0.62rem;
-  letter-spacing: 1.5px;
+  font-size: 0.68rem;
+  letter-spacing: 1.25px;
   font-weight: 700;
-  color: var(--accent);
+  color: #f3f1ed;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
 }
 
 .visit-label::after {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   background: #10b981;
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 0 0 8px #10b981;
+  box-shadow: 0 0 9px rgba(16, 185, 129, 0.75);
   animation: liveDotPulse 1.8s infinite;
 }
 
@@ -1167,17 +1172,26 @@ ul { list-style: none; }
 }
 
 .visit-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  min-height: 26px;
+  padding: 3px 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.95rem;
-  font-weight: 800;
+  font-size: 0.8rem;
+  font-weight: 700;
   color: #ffffff;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.5px;
 }
 .visit-number img {
   display: block;
   width: auto;
-  height: 1.1em;
+  height: 18px;
+  border-radius: 4px;
 }
 
 /* ══════════════════════════════════════
@@ -1710,12 +1724,16 @@ ul { list-style: none; }
   .visit-counter {
     top: 12px;
     right: 12px;
-    padding: 6px 12px;
-    border-radius: 30px;
+    padding: 6px 9px;
+    border-radius: 14px;
   }
-  .visit-counter-icon { font-size: 0.95rem; }
-  .visit-label { font-size: 0.55rem; }
-  .visit-number { font-size: 0.8rem; letter-spacing: 1px; }
+  .visit-counter-inner { gap: 7px; }
+  .visit-counter-icon { width: 28px; height: 28px; border-radius: 9px; }
+  .visit-counter-icon svg { width: 16px; height: 16px; }
+  .visit-counter-text { gap: 7px; }
+  .visit-label { font-size: 0.58rem; letter-spacing: 0.8px; }
+  .visit-number { min-width: 30px; min-height: 24px; padding: 2px 4px; }
+  .visit-number img { height: 17px; }
 
   .cli-terminal {
     border-radius: 14px;
