@@ -13,13 +13,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Gloria+Hallelujah&family=Sora:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Gloria+Hallelujah&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+
+  <!-- ═══════════ SCROLL PROGRESS BAR ═══════════ -->
+  <div id="scrollProgress" class="scroll-progress-bar"></div>
 
   <!-- ═══════════ PARTICLE CANVAS ═══════════ -->
   <canvas id="particleCanvas"></canvas>
@@ -28,11 +31,24 @@
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- ═══════════ VISIT COUNTER ═══════════ -->
+  <div class="visit-counter" id="visitCounter">
+    <div class="visit-counter-inner">
+      <span class="visit-counter-icon">👁️</span>
+      <div class="visit-counter-text">
+        <span class="visit-label">VISITORS</span>
+        <span class="visit-number" id="visitNumber">000000</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══════════ PRELOADER ═══════════ -->
   <div id="preloader">
     <div class="preloader-inner">
       <span class="preloader-name">SHUBHAM KUMAR</span>
-      <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill"></div>
+      </div>
     </div>
   </div>
 
@@ -56,7 +72,8 @@
       <!-- Top labels -->
       <div class="hero-top-row">
         <div class="hero-label hero-label-left">
-          <span class="label-tag typewriter-wrapper"><span id="typewriter"></span><span class="typewriter-cursor">|</span></span>
+          <span class="label-tag typewriter-wrapper"><span id="typewriter"></span><span
+              class="typewriter-cursor">|</span></span>
         </div>
         <div class="hero-label hero-label-right">
           <span class="label-tag">Problem Solver</span>
@@ -68,25 +85,35 @@
       <div class="hero-name-row">
         <h1 class="hero-firstname">SHUBHAM</h1>
         <div class="hero-portrait">
-          <img src="assets/mypic.jpeg" alt="Shubham Kumar" />
+          <img src="assets/121.png" alt="Shubham Kumar" />
         </div>
         <h1 class="hero-lastname">KUMAR</h1>
       </div>
 
       <!-- Subtitle -->
       <div class="hero-subtitle-row">
-        <p class="hero-subtitle">I build <em>high-performance</em> web applications and <em>intelligent systems</em> that solve real-world problems.</p>
+        <p class="hero-subtitle">I build <em>high-performance</em> web applications and <em>intelligent systems</em>
+          that solve real-world problems.</p>
         <div class="hero-cta-row">
           <a href="https://leetcode.com/u/Shubham_kumar_025/" target="_blank" rel="noopener" class="btn-outline">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px;"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px;">
+              <path
+                d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
+            </svg>
             LeetCode
           </a>
           <a href="https://www.linkedin.com/in/shubham-07-kumar/" target="_blank" rel="noopener" class="btn-outline">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px;">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
             LinkedIn
           </a>
           <a href="https://github.com/Shubham-kumar2507" target="_blank" rel="noopener" class="btn-primary">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px;">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
             GitHub
           </a>
         </div>
@@ -94,13 +121,17 @@
 
       <!-- Stats bar -->
       <div class="hero-stats-bar">
-        <div class="stat-item"><strong>8+</strong><span>Projects</span></div>
+        <div class="stat-item"><strong class="counter-anim" data-target="9">0</strong><span>Projects</span></div>
         <div class="stat-divider"></div>
-        <div class="stat-item"><strong>350+</strong><span>DSA Problems</span></div>
+        <div class="stat-item"><strong class="counter-anim" data-target="500">0</strong><span>LeetCode Problems</span></div>
         <div class="stat-divider"></div>
-        <div class="stat-item"><strong>7.98</strong><span>CGPA</span></div>
+        <div class="stat-item"><strong>1750+</strong><span>LC Rating</span></div>
         <div class="stat-divider"></div>
-        <div class="stat-item"><strong>6+</strong><span>Certifications</span></div>
+        <div class="stat-item"><strong class="counter-anim" data-target="450">0</strong><span>DSA Problems</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><strong>7.95</strong><span>CGPA</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><strong class="counter-anim" data-target="7">0</strong><span>Certifications</span></div>
       </div>
 
     </div>
@@ -141,7 +172,8 @@
               <h3>Web & Frameworks</h3>
               <p>Building modern, responsive web interfaces and robust server-side applications.</p>
               <div class="stack-card-pills">
-                <span>React</span><span>Node.js</span><span>Spring Boot</span><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>Tailwind</span>
+                <span>React</span><span>Node.js</span><span>Spring
+                  Boot</span><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>Tailwind</span>
               </div>
             </div>
           </div>
@@ -154,7 +186,8 @@
               <h3>Database & DevOps</h3>
               <p>Managing data pipelines, version control, and containerized deployment workflows.</p>
               <div class="stack-card-pills">
-                <span>MySQL</span><span>MongoDB</span><span>Git</span><span>Docker</span><span>Linux</span><span>REST APIs</span>
+                <span>MySQL</span><span>MongoDB</span><span>Git</span><span>Docker</span><span>Linux</span><span>REST
+                  APIs</span>
               </div>
             </div>
           </div>
@@ -167,7 +200,8 @@
               <h3>Core Strengths</h3>
               <p>Deep expertise in computer science fundamentals and competitive problem solving.</p>
               <div class="stack-card-pills">
-                <span>DSA</span><span>DBMS</span><span>OOP</span><span>Problem Solving</span><span>System Design</span><span>Agile</span>
+                <span>DSA</span><span>DBMS</span><span>OOP</span><span>Problem Solving</span><span>System
+                  Design</span><span>Agile</span>
               </div>
             </div>
           </div>
@@ -190,14 +224,19 @@
           </div>
           <div class="about-actions">
             <a href="#contact" class="btn-primary">Contact Me</a>
-            <a href="Shubham_CV_2026.pdf" download class="btn-outline">↓ Download CV</a>
+            <a href="Shubham_Kumar_SDE_Intern_CV_Acko%20(2).pdf" download="Shubham_Kumar_CV.pdf" class="btn-outline">↓ Download CV</a>
           </div>
         </div>
 
         <div class="about-text-col">
-          <p class="about-intro" data-scroll-reveal>I am a <strong>Computer Science & Engineering</strong> student at <strong>Lovely Professional University</strong> with a passion for building robust digital experiences.</p>
-          <p data-scroll-reveal>My technical expertise spans crafting responsive front-end interfaces, engineering optimized C++ systems, and developing AI-powered chatbots. Beyond standard development, I am deeply engaged in competitive programming, frequently tackling complex algorithmic challenges involving dynamic programming and graph theory.</p>
-          <p data-scroll-reveal>Whether I am optimizing complex data structures or exploring new web frameworks like Laravel, I am driven by the desire to turn intricate problems into elegant, scalable solutions.</p>
+          <p class="about-intro" data-scroll-reveal>I am a <strong>Computer Science & Engineering</strong> student at
+            <strong>Lovely Professional University</strong> (Class of 2027) with hands-on experience building scalable, fault-tolerant systems in Python, C++, and the MERN stack.</p>
+          <p data-scroll-reveal>Strong grounding in data structures, algorithms, OOP, and DBMS; comfortable turning ambiguous problems into
+            shipped, production-style software. My technical expertise spans crafting responsive front-end interfaces, engineering
+            optimized C++ systems, and developing AI-powered chatbots.</p>
+          <p data-scroll-reveal>With <strong>500+ LeetCode problems solved</strong> and a <strong>1750+ rating</strong>, I am deeply engaged
+            in competitive programming, frequently tackling complex algorithmic challenges involving dynamic programming
+            and graph theory. Whether I am optimizing complex data structures or building production-grade pipelines, I am driven by the desire to turn intricate problems into elegant, scalable solutions.</p>
 
           <div class="about-details-grid">
             <div class="detail-item">
@@ -231,6 +270,29 @@
 
       <div class="projects-grid">
 
+        <!-- ShipGuard -->
+        <div class="project-card">
+          <div class="project-card-img project-card-img-gradient" style="--gradient-from: #0f766e; --gradient-to: #1d4ed8;">
+            <div class="project-card-img-icon">🛡️</div>
+            <div class="project-overlay">
+              <span class="project-badge badge-new">NEW</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3>ShipGuard</h3>
+            <p>A Python CLI and GitHub App that automates PR security, supply-chain, and policy checks. Includes a
+              signature-verified FastAPI webhook that isolates untrusted PR code, OPA policy-as-code, SBOM generation,
+              an LLM code reviewer with an evaluation harness, and a Copier template for hardened FastAPI services.</p>
+            <div class="project-tags">
+              <span>Python</span><span>FastAPI</span><span>GitHub App</span><span>OPA</span><span>SBOM</span><span>LLM</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Shubham-kumar2507/shipGuard" target="_blank" rel="noopener"
+                class="project-link-btn project-link-code">💻 Source Code</a>
+            </div>
+          </div>
+        </div>
+
         <!-- EKYAM -->
         <div class="project-card">
           <div class="project-card-img">
@@ -241,13 +303,42 @@
           </div>
           <div class="project-card-body">
             <h3>EKYAM</h3>
-            <p>A decentralized community management platform featuring automated governance with user-led moderation and custom admin workflows, a full event lifecycle engine for real-time RSVPs and participation tracking, and a secure resource-sharing hub powered by Role-Based Access Control across multi-tiered community architectures.</p>
+            <p>A decentralized community management platform featuring automated governance with user-led moderation and
+              custom admin workflows, a full event lifecycle engine for real-time RSVPs and participation tracking, and
+              a secure resource-sharing hub powered by Role-Based Access Control across multi-tiered community
+              architectures.</p>
             <div class="project-tags">
               <span>Node.js</span><span>RBAC</span><span>REST API</span><span>Real-time</span><span>MongoDB</span>
             </div>
             <div class="project-links">
-              <a href="https://ekyam-pro.vercel.app/" target="_blank" rel="noopener" class="project-link-btn project-link-live">🚀 Live Demo</a>
-              <a href="https://github.com/Shubham-kumar2507/ekyam_pro" target="_blank" rel="noopener" class="project-link-btn project-link-code">💻 Source Code</a>
+              <a href="https://ekyam-pro.vercel.app/" target="_blank" rel="noopener"
+                class="project-link-btn project-link-live">🚀 Live Demo</a>
+              <a href="https://github.com/Shubham-kumar2507/ekyam_pro" target="_blank" rel="noopener"
+                class="project-link-btn project-link-code">💻 Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Ingestion Pipeline -->
+        <div class="project-card">
+          <div class="project-card-img project-card-img-gradient" style="--gradient-from: #667eea; --gradient-to: #764ba2;">
+            <div class="project-card-img-icon">⚡</div>
+            <div class="project-overlay">
+              <span class="project-badge badge-new">NEW</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3>Job Ingestion Pipeline</h3>
+            <p>A resilient, production-style data ingestion pipeline with UA rotation, randomized delays, and an
+              exponential-backoff circuit breaker. Features a hybrid validation system combining strict Pydantic schema
+              enforcement with an opt-in LLM fallback parser (Groq) to repair malformed records, plus a deterministic
+              enrichment engine with 30+ regex-based skill extractors and a FastAPI + Jinja2 dashboard.</p>
+            <div class="project-tags">
+              <span>Python</span><span>FastAPI</span><span>Pydantic</span><span>SQLite</span><span>LLM</span><span>Groq</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Shubham-kumar2507" target="_blank" rel="noopener"
+                class="project-link-btn project-link-code">💻 Source Code</a>
             </div>
           </div>
         </div>
@@ -262,9 +353,13 @@
           </div>
           <div class="project-card-body">
             <h3>Spring Boot AI Chatbot</h3>
-            <p>Full-stack conversational AI application built with Java 17 and Spring Boot, featuring a clean Controller-Service-Model architecture for RESTful communication. Integrates Google's Gemini API via Spring WebClient for dynamic query processing with a smart fallback mechanism for stability. Deployment is streamlined through custom PowerShell/Batch scripts and Docker Compose for one-click builds.</p>
+            <p>Full-stack conversational AI application built with Java 17 and Spring Boot, featuring a clean
+              Controller-Service-Model architecture for RESTful communication. Integrates Google's Gemini API via Spring
+              WebClient for dynamic query processing with a smart fallback mechanism for stability. Deployment is
+              streamlined through custom PowerShell/Batch scripts and Docker Compose for one-click builds.</p>
             <div class="project-tags">
-              <span>Spring Boot</span><span>Java 17</span><span>Gemini API</span><span>Docker</span><span>REST API</span>
+              <span>Spring Boot</span><span>Java 17</span><span>Gemini API</span><span>Docker</span><span>REST
+                API</span>
             </div>
           </div>
         </a>
@@ -279,7 +374,9 @@
           </div>
           <div class="project-card-body">
             <h3>Nirvana</h3>
-            <p>A responsive music discovery web app that generates customized playlists based on user-selected languages and moods. Powered by the YouTube Data API v3 for real-time video retrieval, it features an interactive chat-style interface enabling direct song and artist searches for a seamless listening experience.</p>
+            <p>A responsive music discovery web app that generates customized playlists based on user-selected languages
+              and moods. Powered by the YouTube Data API v3 for real-time video retrieval, it features an interactive
+              chat-style interface enabling direct song and artist searches for a seamless listening experience.</p>
             <div class="project-tags">
               <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>YouTube API</span>
             </div>
@@ -287,7 +384,8 @@
         </a>
 
         <!-- AI System Call Optimizer -->
-        <a href="https://shubham-kumar2507.github.io/AI-System-Call-Optimizer/" target="_blank" rel="noopener" class="project-card">
+        <a href="https://shubham-kumar2507.github.io/AI-System-Call-Optimizer/" target="_blank" rel="noopener"
+          class="project-card">
           <div class="project-card-img">
             <img src="assets/ai-optimizer.png" alt="AI System Call Optimizer" loading="lazy" />
             <div class="project-overlay">
@@ -296,7 +394,10 @@
           </div>
           <div class="project-card-body">
             <h3>AI System Call Optimizer</h3>
-            <p>An intelligent performance dashboard leveraging machine learning algorithms to monitor and optimize system calls. By analyzing real-time execution patterns, it identifies bottlenecks and automates resource allocation, achieving up to a 25% improvement in overall system efficiency and reducing latency in high-throughput environments.</p>
+            <p>An intelligent performance dashboard leveraging machine learning algorithms to monitor and optimize
+              system calls. By analyzing real-time execution patterns, it identifies bottlenecks and automates resource
+              allocation, achieving up to a 25% improvement in overall system efficiency and reducing latency in
+              high-throughput environments.</p>
             <div class="project-tags">
               <span>Python</span><span>JavaScript</span><span>ML</span><span>Data Viz</span>
             </div>
@@ -310,7 +411,10 @@
           </div>
           <div class="project-card-body">
             <h3>C++ Monitoring Agent</h3>
-            <p>A high-performance telemetry agent engineered in C++ for resource-constrained IoT devices. Built on an event-driven, asynchronous architecture, it features a scalable plugin system for custom metric collection and is fully containerized with Docker, ensuring rapid deployment and reliable cross-platform execution.</p>
+            <p>A high-performance telemetry agent engineered in C++ for resource-constrained IoT devices. Built on an
+              event-driven, asynchronous architecture, it features a scalable plugin system for custom metric collection
+              and is fully containerized with Docker, ensuring rapid deployment and reliable cross-platform execution.
+            </p>
             <div class="project-tags">
               <span>C++</span><span>IoT</span><span>Docker</span><span>Monitoring</span>
             </div>
@@ -338,11 +442,16 @@
             <h3>Summer Training — CSE Pathshala</h3>
             <span class="exp-role">DSA & OOP Bootcamp</span>
             <ul>
-              <li>Completed a rigorous <strong>32-day immersive program</strong> covering advanced OOP concepts and DSA from scratch to expert level</li>
-              <li>Solved <strong>50+ complex algorithmic challenges</strong> spanning arrays, strings, linked lists, stacks, queues, recursion, backtracking, DP, and greedy algorithms</li>
-              <li>Designed and built <strong>5+ production-quality C++ projects</strong> implementing binary trees, AVL trees, graph traversals (BFS/DFS), Dijkstra's shortest path</li>
-              <li>Mastered competitive programming patterns including <strong>two-pointer technique, sliding window, merge sort applications, and segment trees</strong></li>
-              <li>Received <strong>top-performer recognition</strong> for consistently delivering optimized solutions with O(n log n) or better time complexity</li>
+              <li>Completed a rigorous <strong>32-day immersive program</strong> covering advanced OOP concepts and DSA
+                from scratch to expert level</li>
+              <li>Solved <strong>450+ complex algorithmic challenges</strong> spanning arrays, strings, linked lists,
+                stacks, queues, recursion, backtracking, DP, and greedy algorithms</li>
+              <li>Designed and built <strong>5+ production-quality C++ projects</strong> implementing binary trees, AVL
+                trees, graph traversals (BFS/DFS), Dijkstra's shortest path</li>
+              <li>Mastered competitive programming patterns including <strong>two-pointer technique, sliding window,
+                  merge sort applications, and segment trees</strong></li>
+              <li>Received <strong>top-performer recognition</strong> for consistently delivering optimized solutions
+                with O(n log n) or better time complexity</li>
             </ul>
           </div>
         </div>
@@ -356,11 +465,16 @@
             <h3>Hardware & Operating Systems (Honours) — IBM</h3>
             <span class="exp-role">Certification Program</span>
             <ul>
-              <li>Earned <strong>IBM Honours certification</strong> in advanced hardware architecture and OS internals, covering CPU scheduling, memory management, and process synchronization</li>
-              <li>Mastered <strong>OS function configuration & troubleshooting</strong> across Linux and Windows environments — diagnosing kernel panics and optimizing boot sequences</li>
-              <li>Gained deep expertise in <strong>modern GPU architectures</strong> including CUDA cores, parallel processing pipelines, and GPU-accelerated computing</li>
-              <li>Developed <strong>secure IoT device integration strategies</strong> — implementing TLS/SSL protocols, certificate pinning, and encrypted data transmission</li>
-              <li>Built a capstone project demonstrating <strong>real-time system monitoring</strong> with custom metrics collection and automated anomaly detection</li>
+              <li>Earned <strong>IBM Honours certification</strong> in advanced hardware architecture and OS internals,
+                covering CPU scheduling, memory management, and process synchronization</li>
+              <li>Mastered <strong>OS function configuration & troubleshooting</strong> across Linux and Windows
+                environments — diagnosing kernel panics and optimizing boot sequences</li>
+              <li>Gained deep expertise in <strong>modern GPU architectures</strong> including CUDA cores, parallel
+                processing pipelines, and GPU-accelerated computing</li>
+              <li>Developed <strong>secure IoT device integration strategies</strong> — implementing TLS/SSL protocols,
+                certificate pinning, and encrypted data transmission</li>
+              <li>Built a capstone project demonstrating <strong>real-time system monitoring</strong> with custom
+                metrics collection and automated anomaly detection</li>
             </ul>
           </div>
         </div>
@@ -378,25 +492,43 @@
       <div class="stacking-cards">
 
         <div class="stack-card" style="--card-index: 0;">
-          <a href="https://drive.google.com/file/d/17U47wLo_gdoZ-LLOAo9vPW0uEJaALd2w/view" target="_blank" rel="noopener" class="stack-card-inner stack-card-link">
+          <div class="stack-card-inner stack-card-link">
             <div class="stack-card-num">01</div>
             <div class="stack-card-content">
-              <h3>📜 Computational Theory</h3>
-              <p>Language Principle & Finite Automata — deep dive into formal languages, regular expressions, context-free grammars, pushdown automata, and Turing machines.</p>
+              <h3>☁️ Oracle Cloud AI Foundations</h3>
+              <p>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate — covering cloud AI services,
+                machine learning concepts, generative AI, and OCI AI infrastructure.</p>
               <div class="stack-card-pills">
-                <span>Skillsoft</span><span>Aug 2025</span>
+                <span>Oracle</span><span>May 2026</span><span class="pill-new">NEW</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-card" style="--card-index: 1;">
+          <a href="https://drive.google.com/file/d/17U47wLo_gdoZ-LLOAo9vPW0uEJaALd2w/view" target="_blank"
+            rel="noopener" class="stack-card-inner stack-card-link">
+            <div class="stack-card-num">02</div>
+            <div class="stack-card-content">
+              <h3>📜 Computational Theory</h3>
+              <p>Language Principle & Finite Automata — deep dive into formal languages, regular expressions,
+                context-free grammars, pushdown automata, and Turing machines.</p>
+              <div class="stack-card-pills">
+                <span>Infosys</span><span>Aug 2025</span>
               </div>
             </div>
             <span class="stack-card-arrow">View Certificate →</span>
           </a>
         </div>
 
-        <div class="stack-card" style="--card-index: 1;">
-          <a href="https://drive.google.com/file/d/1BdScYKPu9_KE1PEWYVUAsXvFCbGeyVH-/view" target="_blank" rel="noopener" class="stack-card-inner stack-card-link">
-            <div class="stack-card-num">02</div>
+        <div class="stack-card" style="--card-index: 2;">
+          <a href="https://drive.google.com/file/d/1BdScYKPu9_KE1PEWYVUAsXvFCbGeyVH-/view" target="_blank"
+            rel="noopener" class="stack-card-inner stack-card-link">
+            <div class="stack-card-num">03</div>
             <div class="stack-card-content">
               <h3>🌐 Social Networks</h3>
-              <p>Government of India NPTEL certification covering social network analysis, graph theory applications, community detection, and influence propagation models.</p>
+              <p>Government of India NPTEL certification covering social network analysis, graph theory applications,
+                community detection, and influence propagation models.</p>
               <div class="stack-card-pills">
                 <span>NPTEL</span><span>Apr 2025</span>
               </div>
@@ -405,12 +537,14 @@
           </a>
         </div>
 
-        <div class="stack-card" style="--card-index: 2;">
-          <a href="https://drive.google.com/file/d/1JPKiEXKlWkBAqJfKGH0znG2Cb8m9oD1_/view" target="_blank" rel="noopener" class="stack-card-inner stack-card-link">
-            <div class="stack-card-num">03</div>
+        <div class="stack-card" style="--card-index: 3;">
+          <a href="https://drive.google.com/file/d/1JPKiEXKlWkBAqJfKGH0znG2Cb8m9oD1_/view" target="_blank"
+            rel="noopener" class="stack-card-inner stack-card-link">
+            <div class="stack-card-num">04</div>
             <div class="stack-card-content">
               <h3>🔗 Computer Networking</h3>
-              <p>Bits and Bytes of Networking — covering TCP/IP, DNS, DHCP, NAT, routing, subnetting, and network troubleshooting fundamentals.</p>
+              <p>Bits and Bytes of Networking — covering TCP/IP, DNS, DHCP, NAT, routing, subnetting, and network
+                troubleshooting fundamentals.</p>
               <div class="stack-card-pills">
                 <span>Google</span><span>Sep 2024</span>
               </div>
@@ -419,12 +553,14 @@
           </a>
         </div>
 
-        <div class="stack-card" style="--card-index: 3;">
-          <a href="https://drive.google.com/file/d/16V2qz_UUViGvffwRrBW9ln3Ax3pOL0cq/view?usp=sharing" target="_blank" rel="noopener" class="stack-card-inner stack-card-link">
-            <div class="stack-card-num">04</div>
+        <div class="stack-card" style="--card-index: 4;">
+          <a href="https://drive.google.com/file/d/16V2qz_UUViGvffwRrBW9ln3Ax3pOL0cq/view?usp=sharing" target="_blank"
+            rel="noopener" class="stack-card-inner stack-card-link">
+            <div class="stack-card-num">05</div>
             <div class="stack-card-content">
               <h3>📱 Responsive Web Design</h3>
-              <p>Modern Web Development — mastering CSS Grid, Flexbox, media queries, accessibility best practices, and mobile-first design principles.</p>
+              <p>Modern Web Development — mastering CSS Grid, Flexbox, media queries, accessibility best practices, and
+                mobile-first design principles.</p>
               <div class="stack-card-pills">
                 <span>freeCodeCamp</span><span>Oct 2023</span>
               </div>
@@ -445,6 +581,13 @@
 
       <div class="achieve-grid">
         <div class="achieve-card">
+          <span class="achieve-icon">💻</span>
+          <div>
+            <h4>500+ Questions on LeetCode with 1750+ Rating</h4>
+            <span><a href="https://leetcode.com/u/Shubham_kumar_025/" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 600;">View Profile →</a></span>
+          </div>
+        </div>
+        <div class="achieve-card">
           <span class="achieve-icon">🏆</span>
           <div>
             <h4>2nd Runner-up — CYPHERTHON Coding Challenge</h4>
@@ -455,7 +598,7 @@
           <span class="achieve-icon">🥇</span>
           <div>
             <h4>Winner — CPEC Club Debate Competition</h4>
-            <span>November 2025</span>
+            <span>November 2024</span>
           </div>
         </div>
         <div class="achieve-card">
@@ -480,7 +623,7 @@
           <span class="edu-icon">🎓</span>
           <h3>B.Tech — Computer Science & Engineering</h3>
           <p>Lovely Professional University, Punjab</p>
-          <span class="edu-meta">CGPA: <strong>7.98</strong> &nbsp;|&nbsp; Since August 2023</span>
+          <span class="edu-meta">CGPA: <strong>7.95</strong> &nbsp;|&nbsp; Since August 2023 &nbsp;|&nbsp; Expected Graduation: 2027</span>
         </div>
         <div class="edu-card">
           <span class="edu-icon">📚</span>
@@ -532,6 +675,60 @@
     </div>
   </section>
 
+  <!-- ═══════════ CLI TERMINAL ═══════════ -->
+  <section class="section" id="terminal">
+    <div class="container">
+      <div class="section-tag">/ Interactive Terminal</div>
+      <h2 class="section-title">Explore via CLI</h2>
+      <p class="terminal-intro">Type <code>help</code> to see all available commands. Explore my profile like a developer! 🚀</p>
+
+      <div class="cli-terminal" id="cliTerminal">
+        <div class="cli-titlebar">
+          <div class="cli-dots">
+            <span class="cli-dot cli-dot-red"></span>
+            <span class="cli-dot cli-dot-yellow"></span>
+            <span class="cli-dot cli-dot-green"></span>
+          </div>
+          <span class="cli-title">shubham@portfolio:~$</span>
+          <button class="cli-fullscreen-btn" id="cliFullscreenBtn" title="Toggle fullscreen">⛶</button>
+        </div>
+        <div class="cli-body" id="cliBody">
+          <div class="cli-output" id="cliOutput">
+            <div class="cli-line cli-welcome">
+              <pre class="cli-ascii">
+ ____  _           _     _                     
+/ ___|| |__  _   _| |__ | |__   __ _ _ __ ___  
+\___ \| '_ \| | | | '_ \| '_ \ / _` | '_ ` _ \ 
+ ___) | | | | |_| | |_) | | | | (_| | | | | | |
+|____/|_| |_|\__,_|_.__/|_| |_|\__,_|_| |_| |_|
+              </pre>
+              <p>Welcome to Shubham Kumar's Interactive Portfolio Terminal v2.0</p>
+              <p>Type <span class="cli-highlight">help</span> to see all available commands.</p>
+              <p class="cli-separator">─────────────────────────────────────────────────</p>
+            </div>
+          </div>
+          <div class="cli-input-row">
+            <span class="cli-prompt">visitor@shubham:~$&nbsp;</span>
+            <input type="text" class="cli-input" id="cliInput" autofocus autocomplete="off" spellcheck="false" placeholder="Type a command (or click a shortcut below)..." />
+          </div>
+          <div class="cli-quick-commands">
+            <span class="cli-quick-label">⚡ Quick commands:</span>
+            <button type="button" class="cli-chip" data-cmd="help">help</button>
+            <button type="button" class="cli-chip" data-cmd="about">about</button>
+            <button type="button" class="cli-chip" data-cmd="projects">projects</button>
+            <button type="button" class="cli-chip" data-cmd="project ekyam">project ekyam</button>
+            <button type="button" class="cli-chip" data-cmd="skills">skills</button>
+            <button type="button" class="cli-chip" data-cmd="leetcode">leetcode</button>
+            <button type="button" class="cli-chip" data-cmd="experience">experience</button>
+            <button type="button" class="cli-chip" data-cmd="certs">certs</button>
+            <button type="button" class="cli-chip" data-cmd="contact">contact</button>
+            <button type="button" class="cli-chip" data-cmd="clear">clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
     <div class="footer-inner">
@@ -539,16 +736,28 @@
       <p class="footer-sub">Designed & Built with ❤️ | © 2026 — All Rights Reserved</p>
       <div class="footer-socials">
         <a href="https://github.com/Shubham-kumar2507" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
         </a>
         <a href="https://www.linkedin.com/in/shubham-07-kumar/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
         </a>
         <a href="https://leetcode.com/u/Shubham_kumar_025/" target="_blank" rel="noopener" aria-label="LeetCode">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
+          </svg>
         </a>
         <a href="mailto:shubham.cse.2005@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
         </a>
       </div>
     </div>
@@ -557,24 +766,45 @@
   <!-- ═══════════ BOTTOM NAV ═══════════ -->
   <nav class="bottom-nav" id="bottomNav">
     <a href="#home" class="bnav-link active" data-section="home">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+      </svg>
       <span>Home</span>
     </a>
     <a href="#skills" class="bnav-link" data-section="skills">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+      </svg>
       <span>Skills</span>
     </a>
     <a href="#about" class="bnav-link" data-section="about">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
       <span>About</span>
     </a>
     <a href="#portfolio" class="bnav-link" data-section="portfolio">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
       <span>Portfolio</span>
     </a>
     <a href="#experience" class="bnav-link" data-section="experience">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+      </svg>
       <span>Experience</span>
+    </a>
+    <a href="#terminal" class="bnav-link" data-section="terminal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <polyline points="4 17 10 11 4 5" />
+        <line x1="12" y1="19" x2="20" y2="19" />
+      </svg>
+      <span>CLI</span>
     </a>
     <a href="#contact" class="bnav-link bnav-contact" data-section="contact">Contact Me</a>
   </nav>
