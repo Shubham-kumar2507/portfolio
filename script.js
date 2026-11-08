@@ -331,7 +331,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const visitorBadge = document.createElement('img');
     visitorBadge.alt = 'Visitor count loading';
     visitorBadge.referrerPolicy = 'no-referrer';
-    visitorBadge.addEventListener('load', () => visitEl.replaceChildren(visitorBadge), { once: true });
+    visitorBadge.addEventListener('load', () => {
+      visitorBadge.alt = 'Visitor count';
+      visitEl.replaceChildren(visitorBadge);
+    }, { once: true });
     visitorBadge.addEventListener('error', () => {
       visitEl.textContent = 'Unavailable';
       visitEl.setAttribute('aria-label', 'Visitor count unavailable');
